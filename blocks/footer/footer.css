@@ -1,7 +1,8 @@
-footer {
+ footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
-}
+  padding: 0px 8px;
+}/*
 
 footer .footer > div {
   margin: auto;
@@ -17,4 +18,42 @@ footer .footer p {
   footer .footer > div {
     padding: 40px 32px 24px;
   }
+} */
+.footer div{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  align-items: flex-start;
+
+}
+.section{
+  flex: 1;
+}
+.common-block div{
+  display: flex;
+  gap:0;
+}
+.block4 div ul{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.common-block div ul{
+  list-style: none;
+  padding: 0rem 1rem;
+  margin: 0;
+}
+.common-block div p{
+  padding: 0.4rem 1rem;
+  margin: 0;
+  font-size: 14px;
+  font-family: Muli,sans-serif;
+}
+.common-block div ul li{
+  color: #4b5563;
+  font-size: 14px;
+  font-family: Muli,sans-serif;
+}
+.common-block div p:nth-of-type(2){
+  color: #4b5563;
 }

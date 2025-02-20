@@ -1,33 +1,146 @@
-.columns > div {
+.columns div{
   display: flex;
   flex-direction: column;
+  gap: .5rem;
+
+}
+.columns div div{
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
+.columns div div p{
+  text-align: center;
+  margin: .5rem 0;
+}
+.columns-img-col{
+  align-self: center; 
+  padding: 1rem;
+  
+}
+.columns-img-col picture img{
+  object-fit: contain;
+  
+  
+}
+.columns div div p:first-of-type{
+  font-size: 2.8rem;
+}
+.columns div div p:nth-of-type(2){
+  font-size: 2rem;
+}
+.columns div div p:nth-of-type(3){
+  font-size: .8rem;
+}
+.columns div div p a{
+  text-decoration: underline;
+  color: black;
+  font-size: .8rem;
+  font-weight: 400;
 }
 
-.columns img {
-  width: 100%;
+@media (min-width:600px) {
+  .columns div div p:first-of-type{
+    font-size: 3.4rem;
+  }
+  .columns div div p:nth-of-type(2){
+    font-size: 2.6rem;
+  }
+  .columns div div p:nth-of-type(3){
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+  .columns div div p a{
+    text-decoration: underline;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+ 
+}
+@media (min-width:900px) {
+  .columns div{ 
+    flex-direction: row;
+  }
 }
 
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
-}
-
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+.variation div{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .variation div div:nth-of-type(2){
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 2;
+    
+    background-color: rgb(0,0,0);
+    padding: 4rem 2rem;
+  }
+  .variation div div p{
+    
+    text-align: center;
+    margin: .5rem ;
+    color: white;
+  }
+  .variation div .columns-img-col{
+    align-self: center; 
+    flex: 4;
+    padding: 0;
+    margin: 0;
+    
+  }
+  .variation .columns-img-col picture img{
+    object-fit: cover;
+    
+  }
+  .variation .columns-img-col picture{
+    display: flex;
+    
+  }
+  .variation div div p:first-of-type{
+    font-size: 2.8rem;
   }
 
-  .columns > div > div {
-    flex: 1;
-    order: unset;
+  .variation div div p:nth-of-type(2){
+    font-size: .8rem;
   }
-}
+  .variation div div .button-container a{
+    text-decoration: underline;
+    color: black;
+    font-size: .8rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: white;
+    margin-top: 0;
+  }
+  
+  @media (min-width:600px) {
+    
+    .variation div div p:first-of-type{
+      font-size: 3.4rem;
+    }
+    
+    .variation div div p:nth-of-type(2){
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    .variation div div .button-container a{
+      text-decoration: underline;
+      font-size: 1.2rem;
+      
+    }
+   
+  }
+  @media (min-width:900px) {
+    .variation div{ 
+      flex-direction: row;
+      gap: 0;
+    }
+   
+  }
+  

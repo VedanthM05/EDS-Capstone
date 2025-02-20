@@ -7,6 +7,7 @@ import { loadFragment } from '../fragment/fragment.js';
  */
 export default async function decorate(block) {
   // load footer as fragment
+  debugger;
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
   const fragment = await loadFragment(footerPath);
@@ -14,7 +15,14 @@ export default async function decorate(block) {
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
-  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+  let count=1;
+  while (fragment.firstElementChild) {
+    fragment.firstElementChild.classList.add(`block${count}`,"common-block");
+    footer.append(fragment.firstElementChild); 
+    count++;  
+    console.log(fragment.firstElementChild);
+  }
+
 
   block.append(footer);
 }
