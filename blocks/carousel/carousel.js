@@ -1,31 +1,31 @@
 import { fetchPlaceholders } from '../../scripts/aem.js';
 
 function updateActiveSlide(slide) {
-  const block = slide.closest('.carousel');
-  const slideIndex = parseInt(slide.dataset.slideIndex, 10);
-  block.dataset.activeSlide = slideIndex;
+  // const block = slide.closest('.carousel');
+  // const slideIndex = parseInt(slide.dataset.slideIndex, 10);
+  // block.dataset.activeSlide = slideIndex;
 
-  const slides = block.querySelectorAll('.carousel-slide');
+  // const slides = block.querySelectorAll('.carousel-slide');
 
-  slides.forEach((aSlide, idx) => {
-    aSlide.setAttribute('aria-hidden', idx !== slideIndex);
-    aSlide.querySelectorAll('a').forEach((link) => {
-      if (idx !== slideIndex) {
-        link.setAttribute('tabindex', '-1');
-      } else {
-        link.removeAttribute('tabindex');
-      }
-    });
-  });
+  // slides.forEach((aSlide, idx) => {
+  //   aSlide.setAttribute('aria-hidden', idx !== slideIndex);
+  //   aSlide.querySelectorAll('a').forEach((link) => {
+  //     if (idx !== slideIndex) {
+  //       link.setAttribute('tabindex', '-1');
+  //     } else {
+  //       link.removeAttribute('tabindex');
+  //     }
+  //   });
+  // });
 
-  const indicators = block.querySelectorAll('.carousel-slide-indicator');
-  indicators.forEach((indicator, idx) => {
-    if (idx !== slideIndex) {
-      indicator.querySelector('button').removeAttribute('disabled');
-    } else {
-      indicator.querySelector('button').setAttribute('disabled', 'true');
-    }
-  });
+//   const indicators = block.querySelectorAll('.carousel-slide-indicator');
+//   indicators.forEach((indicator, idx) => {
+//     if (idx !== slideIndex) {
+//       indicator.querySelector('button').removeAttribute('disabled');
+//     } else {
+//       indicator.querySelector('button').setAttribute('disabled', 'true');
+//     }
+//   });
 }
 
 function showSlide(block, slideIndex = 0) {
@@ -34,7 +34,7 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
+  // activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
@@ -91,24 +91,23 @@ function createSlide(row, slideIndex, carouselId) {
 function initCarouselIndicators() {
   const checkExist = setInterval(() => {
       const slideIndicators = document.querySelector(".carousel-slide-indicators");
-      
+      const targetSlide = document.querySelector('[data-target-slide="0"] button').classList.add('active');
       if (slideIndicators) {
-          clearInterval(checkExist); // Stop checking once found
+          clearInterval(checkExist); 
 
           slideIndicators.addEventListener("click", function (event) {
               if (event.target.tagName === "BUTTON") {
-                  // Remove 'active' class from all buttons
+    
                   document.querySelectorAll(".carousel-slide-indicator button").forEach(btn => btn.classList.remove("active"));
 
-                  // Add 'active' class to the clicked button
                   event.target.classList.add("active");
               }
           });
       }
-  }, 100); // Check every 100ms until found
+  }, 100); 
 }
 
-// Run the function
+
 initCarouselIndicators();
 
 

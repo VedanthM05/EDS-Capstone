@@ -19,7 +19,9 @@
 }
 
 .cards-card-image img {
-  width: 100%;
+  width: 60%;
+  display: block;
+  margin: auto;
 }
 
 .cards-card-body {
@@ -32,8 +34,7 @@
   text-align: center;
 }
 .cards-card-body >:first-child{
-  
-  font-size:1.8em;
+  font-size:1.1em;
   letter-spacing: .2rem;
 }
 .cards-card-body p:nth-of-type(2){
@@ -65,4 +66,7 @@
   .cards-card-body{
     top: -1%;
   }  
+  .cards-card-image img {
+    width: 100%;
+  }
 }

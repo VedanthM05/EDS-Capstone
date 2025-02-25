@@ -217,13 +217,14 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
  
   if (navTools) {
-    const search = navTools.querySelector('.icon-search'); // Target search icon
+    const search = navTools.querySelector('.icon-search'); 
     if (search) {
-      search.style.cursor = 'pointer'; // Ensure it's clickable
+      search.style.cursor = 'pointer'; 
       search.addEventListener('click', () => {
-        window.open('https://www.google.com', '_blank'); // Open Google in a new tab
+        window.open('https://www.google.com', '_blank'); 
       });
     }
+
   }
 
 

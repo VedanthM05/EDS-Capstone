@@ -32,12 +32,12 @@ header nav[aria-expanded='true'] {
   min-height: 100dvh;
 }
 
-@media (width >= 1000px) {
+@media (width >= 900px) {
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
+    gap: 0 20px;
+    max-width: 100%;
     padding: 0 32px;
   }
 
@@ -131,7 +131,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 1000px) {
+@media (width >= 900px) {
   header nav .nav-hamburger {
     display: none;
     visibility: hidden;
@@ -177,9 +177,7 @@ header nav .nav-sections ul > li {
   font-weight: lighter;
   
 }
-header nav .nav-sections div ul li[aria-expanded='true']{
-  border-bottom: 2px solid lightgray;
-}
+
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
   padding: .5rem 0rem;
@@ -189,23 +187,18 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
-  padding-bottom: .5rem;
   color:rgb(149, 145, 145);
   font: 16px;
 }
 
-/* new */
-/* Hide submenus by default */
 .nav-tools div{
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
-  /* grid-auto-flow: column; */
+ 
   display: flex;
   gap: 1rem;
 }
 
 
-@media (min-width:600px) and (width<1000px) {
+@media (min-width:600px)  {
  .nav-tools div p:nth-of-type(1)::after{
     content:"Search" ;
     font-size: 16px;
@@ -227,18 +220,33 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
+  .nav-tools div p:nth-of-type(1)::after{
+    content:none ;
+  
+  }
+  .nav-tools div p:nth-of-type(2)::after{
+    content: none
+   
+  }
   header nav .nav-sections {
-    display: block;
-    visibility: visible;
-    white-space: nowrap;
+   
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    gap: 12px; /* Reduce from 24px */
+    overflow: hidden; /* Prevents content from overflowing */
+    flex-wrap: wrap;
+  }
+  header .nav-brand {
+    margin-left: 0;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
+    align-self: center;
   }
 
-  header nav .nav-sections .nav-drop {
+  /* header nav .nav-sections .nav-drop {
     position: relative;
     padding-right: 16px;
     cursor: pointer;
@@ -258,11 +266,7 @@ header nav .nav-sections ul > li > ul > li {
     border-width: 2px 2px 0 0;
   }
 
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    /* top: unset; */
-    bottom: 0.5em;
-    transform: rotate(315deg);
-  }
+ 
 
   header nav .nav-sections ul {
     display: flex;
@@ -280,11 +284,9 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul  {
     display: block;
-    position: absolute;
-    /* position:sticky; */
- 
+    position: absolute; 
     width: 200px;
     top: 150%;
     padding: 16px;
@@ -294,7 +296,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
+    
     position: absolute;
     top: -8px;
     left: 16px;
@@ -303,10 +305,67 @@ header nav .nav-sections ul > li > ul > li {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid var(--light-color);
+  } */
+  /* new */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul {
+    display: none;
+    
+  }
+  header nav .nav-sections .default-content-wrapper > ul > li > ul>li{
+    color: black;
+  }
+  header nav .nav-sections .default-content-wrapper > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+  header nav .nav-sections .nav-drop {
+    position: relative;
+    padding-right: 16px;
+    cursor: pointer;
+  }
+  
+  header nav .nav-sections .nav-drop::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    right: -2px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+  }
+  header nav .nav-sections .default-content-wrapper > ul > li {
+    position: relative; /* Ensures the dropdown positions correctly */
+  }
+  
+  header nav .nav-sections .default-content-wrapper > ul > li:hover > ul {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures items stay in a row */
+    position: fixed; /* Sticks dropdown below the header */
+    top: 66px; /* Adjust this value to match header height */
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    /* border-bottom: 2px solid lightgray; */
+    background-color: white;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    z-index: 1000; /* Ensures it appears above other content */
+  }
+  
+  
+
+  header nav .nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduce from 16px */
+    flex-shrink: 0;
   }
 }
 

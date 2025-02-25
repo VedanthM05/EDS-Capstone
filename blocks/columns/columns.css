@@ -139,8 +139,46 @@
   @media (min-width:900px) {
     .variation div{ 
       flex-direction: row;
+      display: flex;
       gap: 0;
     }
    
   }
   
+
+  .product-details div div p:nth-of-type(1){
+    
+    font-family: sans-serif;
+    color: #111827;
+    text-align: left;
+    font-size: 16px;
+  }
+  .product-details div div ul {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #111827;
+
+  }
+  .product-details div div {
+    padding-bottom:1rem;
+    border-bottom: 2px solid lightgray;
+    
+  }
+
+@media (min-width:900px) {
+  .product-details div {
+    display: flex;
+    border-bottom: 2px solid lightgray;
+  
+  }
+  .product-details div div {
+    border-bottom: none;
+    display: flex;
+    gap: 0;
+  }
+  .product-details div div:last-child{
+    margin-left: auto;
+  }
+  
+ 
+}

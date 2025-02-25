@@ -2,22 +2,20 @@
   width: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory; 
-  -webkit-overflow-scrolling: touch; 
 }
 .carousel-wrapper {
   position: relative;
   max-width: 100%;
 }
-.carousel-slides {
+.carousel .carousel-slides-container .carousel-slides {
   display: flex;
-  flex-wrap: nowrap;
   scroll-snap-type: x mandatory; 
   overflow: hidden;
   padding: 0;
   margin: 0;
   list-style: none;
 }
-.carousel-slide {
+.carousel .carousel-slides-container .carousel-slides .carousel-slide {
   scroll-snap-align: start; 
   position: relative;
   min-width: 100%;
@@ -25,17 +23,17 @@
   align-items: center;
   justify-content: center;
 }
-.carousel-slide-image {
+.carousel .carousel-slides-container .carousel-slides .carousel-slide .carousel-slide-image {
   width: 100%;
   position: relative;
 }
-.carousel-slide-image img {
+.carousel .carousel-slides-container .carousel-slides .carousel-slide .carousel-slide-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
 }
-.carousel-slide-content {
+.carousel .carousel-slides-container .carousel-slides .carousel-slide  .carousel-slide-content {
   position: absolute;
   top:50%;
   width: 50%;
@@ -62,7 +60,7 @@
 .carousel-slide-content .button-container .button{
   font-size: .5rem;
 }
-.carousel-slide-indicators {
+.carousel nav .carousel-slide-indicators {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -72,16 +70,16 @@
     background-color: white;
     line-height: 0;
 }
-.carousel-slide-indicator button {
+.carousel nav .carousel-slide-indicators .carousel-slide-indicator button {
   margin: 0;
   padding: 0.1rem;
   border-radius: 50%;
   background-color: rgb(156, 163, 175);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.carousel .carousel-slide-indicator button.active {
+.carousel nav .carousel-slide-indicators .carousel-slide-indicator button.active {
   background-color: var(--text-color);
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
  @media (min-width: 600px) {
   .carousel-slide-content {
