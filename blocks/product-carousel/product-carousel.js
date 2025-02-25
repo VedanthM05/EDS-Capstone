@@ -1,5 +1,6 @@
 
 export default async function decorate(block) {
+    
     const link=document.querySelector(".product-carousel div .button-container p a");
    
     try {
