@@ -11,7 +11,23 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  getMetadata
 } from './aem.js';
+
+
+function breadcrumb() {
+  const loadbread=getMetadata('breadcrumb').toLowerCase() === 'true';
+  if (loadbread) {
+    const breadcrumbBlock = buildBlock('breadcrumb', {elems: []});
+   // if(loadbread && document.querySelector(".breadcrumb")){
+      const main = document.querySelector('body main');
+     const breadcrumbWrapper = document.createElement('div');
+     breadcrumbWrapper.className = 'bread';
+   breadcrumbWrapper.append(breadcrumbBlock);
+     main.prepend(breadcrumbWrapper);
+  }
+  // }
+  }
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -46,7 +62,8 @@ async function loadFonts() {
  */
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
+    // buildHeroBlock(main);
+    breadcrumb();
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
