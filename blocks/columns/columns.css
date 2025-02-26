@@ -146,11 +146,20 @@
   }
   
 
-  .product-details div div p:nth-of-type(1){
+  .product-details div div p{
     
     font-family: sans-serif;
     color: #111827;
     text-align: left;
+    font-size: 16px;
+  }
+  .product-details div div p:nth-of-type(1){
+    font-size: 16px;
+  }
+  .product-details div div p:nth-of-type(2){
+    font-size: 16px;
+  }
+  .product-details div div p:nth-of-type(3){
     font-size: 16px;
   }
   .product-details div div ul {
@@ -169,16 +178,17 @@
   .product-details div {
     display: flex;
     border-bottom: 2px solid lightgray;
+    gap: 20rem;
   
   }
   .product-details div div {
+    flex: 1;
     border-bottom: none;
     display: flex;
     gap: 0;
+    
   }
-  .product-details div div:last-child{
-    margin-left: auto;
-  }
+ 
   
  
 }

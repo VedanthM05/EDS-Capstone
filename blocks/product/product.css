@@ -7,6 +7,16 @@
 .product-wrapper  .product {
     display: flex;
     flex-direction: column;
+    padding: 2rem 0rem;   
+}
+.product .product-child-1{
+    flex: .8;
+}
+.product .product-child-2{
+    flex: 1.5;
+}
+.product .product-child-3{
+    flex: 1.5;
 }
 .product-wrapper  .product .product-common div p{
     font-size: 16px ;
@@ -17,45 +27,82 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
+    
 }
-.product-wrapper  .product .product-child-2 div picture img{
-    object-fit: cover;
+.product-child-1 div picture img{
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+}
+  .product-child-2 div picture img{
+    object-fit: contain;
     height: 200px;
-    width: 100%;
+    width: 200px;
+    display: block;
+    margin: auto;
 }
-.product-wrapper  .product .product-child-3 div:nth-of-type(1) p:nth-of-type(1){
+ .product .product-child-3 div:nth-of-type(1) p:nth-of-type(1){
  
     font-size: 24px;
 }
 
-.product-wrapper  .product .product-child-3 div {
+  .product .product-child-3 div {
     border-bottom: 2px solid lightgrey;
-    padding: 1rem 0rem;
+    padding: 0;
 }
-.product-wrapper  .product .product-child-3 div:nth-of-type(2) div {
+ .product .product-child-3 div:nth-last-child(3) p {
     font-family: sans-serif;
     font-size: 16px;
     border: none;
     display: flex;
     gap: 1rem;
-    padding: .5rem 0rem;
-    
+    padding: .5rem 0rem;  
+    margin: 0;
 }
-.product-wrapper  .product .product-child-3 div:nth-of-type(2) .button-container button{
+ .product-child-3 div:nth-last-child(3) p a{
     border-radius: 0;
     color: #111827;
     background-color: white;
     border: 2px solid black;
+   text-decoration: none;
+   padding: .5rem .5rem;
+   width: 3rem;
+   text-align: center;
+    
+}
+.product .product-child-3 div:nth-last-child(4) p {
+    font-family: sans-serif;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    gap: 1rem;
+    padding: .5rem 0rem; 
+    margin: 0; 
+}
+ .product-child-3 div:nth-last-child(4) p a{
+    border-radius: 0;
+    color: #111827;
+
+    border: 2px solid lightgray;
+   text-decoration: none;
+   padding: .5rem .5rem;
+   width: 2rem;
+   height: 2rem;
     display: flex;
     justify-content: center;
-    
-   
+    align-items: center;
+     
 }
-.product-wrapper  .product .product-child-3 div:nth-of-type(2) .button-container .size-button.active{
+.product-child-3 div:nth-last-child(4) p a.selected::after{
+    content: "✔";
+    
+    
+}
+ .product-child-3 div:nth-last-child(3) p a.active{
     background-color: #111827;
     color: white;
 }
-.product-wrapper  .product .product-child-3 div:nth-of-type(3) p a{
+  .product .product-child-3 div:nth-last-child(2) p a{
     display: inline-block;
     border-radius: 50%;
     height: 2rem;
@@ -65,12 +112,14 @@
     color: #111827;
     text-decoration: none;
 } 
-.product-wrapper  .product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) a span img {
+ .product-child-3 div:nth-last-child(2) p:nth-of-type(2) a span img {
     padding-top: .2rem;
 }
+.product-child-3 div:nth-last-child(2){
+    padding-bottom: .5rem;
+}
 
-
-.product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) .quantity-input{
+.product .product-child-3 div:nth-last-child(2) p:nth-of-type(2) .quantity-input{
     border: 2px solid black;
     border-radius: 10%;
     padding: .5rem 1rem;
@@ -81,74 +130,83 @@
     -webkit-appearance: textfield;
     appearance: textfield;
 }
-.product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) .quantity-input::-webkit-inner-spin-button,
-.product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) .quantity-input::-webkit-outer-spin-button {
+ .product-child-3 div:nth-last-child(2) p:nth-of-type(2) .quantity-input::-webkit-inner-spin-button,
+ .product-child-3 div:nth-last-child(2) p:nth-of-type(2) .quantity-input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) .disabled{
+.product .product-child-3 div:nth-last-child(2) p:nth-of-type(2) .disabled{
     opacity: .5;
 }
-.product .product-child-3 div:nth-of-type(3) p:nth-of-type(1){
+.product .product-child-3 div:nth-last-child(2) p:nth-of-type(1){
     margin-bottom: 1rem;
+    
 }
 
-.product .product-child-3 div:nth-of-type(4) {
+ .product-child-3 div:nth-last-child(1) {
     text-align: center;
+
 }
-.product .product-child-3 div:nth-of-type(4) .button-container a{
+ .product-child-3 div:nth-last-child(1) .button-container a{
     padding: 1rem 2rem;
     margin-bottom: 1rem;
 }
-.product .product-child-3 div:nth-of-type(4) p:nth-of-type(2){
+.product-child-3 div:nth-last-child(1) p:nth-of-type(2){
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
-.product .product-details .product-child-4 div
-{
-    border-bottom: 2px solid lightgray;
-    padding: 2rem 0rem;
-}
-.product .product-details .product-child-4 div ul li{
-    font-size: 16px;
-    font-family: sans-serif;
-    color: #111827;
-}
-.product .product-child-3 div:nth-of-type(4) .button-container .disabled{
+
+.product-child-3 div:nth-last-child(1) .button-container .disabled{
     opacity: .5;
+    cursor: none;
 }
 
  
 @media (min-width:600px) {
-    .product-wrapper .product .product-child-2 div picture img {
-        width: 80%;
-        display:block;
-        margin: auto;
-}
-}
+     .product-child-2 div picture img {
+        width: 300px;
+        height: 300px;
+        
+    }
+    .product-child-1 div picture img{
+        width: 8rem;
+        height: 8rem;
+        
+    }
+    .product-wrapper  .product .product-child-1{
+        gap: 0;
+        justify-content: space-between;
+    }
+ 
+} 
 @media (min-width:900px) {
     .product-wrapper  .product {
         flex-direction: row;
         flex-wrap: nowrap;
-         justify-content: space-between;  
+         gap: 6rem; 
 
     }
     .product-wrapper .product .product-child-1{
         flex-direction: column;
-        flex-wrap: wrap;
         justify-content: flex-start;
+        gap:1rem;
      
     }
     .product-wrapper  .product .product-child-2 div picture img{
+        
+        width: 400px;
+        height:500px;
         object-fit: cover;
-        width: 350px;
+        object-position: top;
+        aspect-ratio: 3/4;
     }
     .product-wrapper  .product .product-child-2 {
-        align-self: center;
+        align-self: flex-start;
+        
       
     }
-    .product-wrapper .product .product-child-3 div:nth-of-type(4) {
+    .product-wrapper .product .product-child-3 div:nth-last-child(1) {
         border-bottom: none;
     }
     .product-wrapper .product{

@@ -14,56 +14,58 @@ export default async function decorate(block) {
     });
     
 
-    const productChild3 = block.querySelector('.product-child-3');
-    if (productChild3) {
-      const secondDiv = productChild3.querySelectorAll('div')[1]; 
-      if (secondDiv) {
-        const paragraphs = secondDiv.querySelectorAll('p');
-  
-        if (paragraphs.length >= 2) {
-          const secondP = paragraphs[1]; 
-          const thirdP = paragraphs[2] || document.createElement('p'); 
-          const buttonContainer = document.createElement('div');
-          buttonContainer.classList.add('button-container');
-         
-          
-
-          const addToCartBtn = block.querySelector(".product .product-child-3 div:nth-of-type(4) .button-container a");
-          if (addToCartBtn) {
-              addToCartBtn.classList.add("disabled"); 
-              addToCartBtn.style.pointerEvents = "none"; 
-          }
-        
-          const sizes = ['S', 'M', 'L'];
-          sizes.forEach((size) => {
-            const button = document.createElement('button');
-            button.textContent = size;
-            button.classList.add('size-button');
-            buttonContainer.appendChild(button);
-  
-            
-            button.addEventListener('click', () => {
-              buttonContainer.querySelectorAll('.size-button').forEach((btn) => btn.classList.remove('active'));
-              button.classList.add('active');
-              thirdP.textContent = `Selected Fashion Size: ${size}`;
-              if (addToCartBtn) {
-                addToCartBtn.classList.remove("disabled");
-                addToCartBtn.style.pointerEvents = "auto";
-            }
-            });
+      const secondDiv = block.querySelector(".product-child-3 div:nth-last-child(4)");
+      const colorLinks = secondDiv.querySelectorAll("p:nth-of-type(2) a");
+      const selectedColorText = secondDiv.querySelector("p:nth-of-type(3)");
+      const colorNames = {
+        "#fee1d2": "Peach",
+        "#f9efe5": "Khaki",
+        "#d4e3ec": "Rain",
+        "#d8f0d8": "Mint"
+    };
+      colorLinks.forEach((link) => {
+          const color = link.getAttribute("title");
+          link.style.backgroundColor = color;
+          link.textContent = ""; 
+          link.addEventListener("click", (event) => {
+              event.preventDefault(); 
+              colorLinks.forEach((btn) => btn.classList.remove("selected"));
+              link.classList.add("selected");
+              const colorName = colorNames[color] ;
+              selectedColorText.textContent = `Selected Fashion Color : ${colorName}`;
           });
-          secondDiv.replaceChild(buttonContainer, secondP);
-          thirdP.classList.add('selected-size');
-          if (!paragraphs[2]) {
-            secondDiv.appendChild(thirdP);
-          }
-        }
+      });
+  
+  
+    
+      const addToCartBtn = block.querySelector(".product-child-3 div:last-child .button-container a.button");
+      const sizeLinks = block.querySelectorAll(".product-child-3 div:nth-last-child(3) p:nth-of-type(2) a");
+      const selectedSizeText = block.querySelector(".product-child-3 div:nth-last-child(3) p:nth-of-type(3)");
+  
+      if (addToCartBtn) {
+          addToCartBtn.classList.add("disabled");
       }
-    }
-    const quantityContainer = block.querySelector(".product-child-3 div:nth-of-type(3) p:nth-of-type(2)");
+  
+      sizeLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+              event.preventDefault();
+              sizeLinks.forEach((btn) => btn.classList.remove("active"));
+              link.classList.add("active");
+              selectedSizeText.textContent = `Selected Fashion Size : ${link.title}`;
+  
+             
+              if (addToCartBtn) {
+                  addToCartBtn.classList.remove("disabled");
+                  addToCartBtn.style.pointerEvents = "auto";
+              }
+          });
+      });
+  
+  
+    const quantityContainer = block.querySelector(".product-child-3 div:nth-last-child(2) p:nth-of-type(2)");
     if (quantityContainer) {
-        const decreaseBtn = quantityContainer.querySelector(".product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) a:nth-of-type(1)");
-        const increaseBtn = quantityContainer.querySelector(".product .product-child-3 div:nth-of-type(3) p:nth-of-type(2) a:nth-of-type(2)");
+        const decreaseBtn = quantityContainer.querySelector(".product .product-child-3 div:nth-last-child(2) p:nth-of-type(2) a:nth-of-type(1)");
+        const increaseBtn = quantityContainer.querySelector(".product .product-child-3 div:nth-last-child(2) p:nth-of-type(2) a:nth-of-type(2)");
 
         if (decreaseBtn && increaseBtn) {
             const quantityInput = document.createElement("input");
